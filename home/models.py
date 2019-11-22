@@ -7,7 +7,7 @@ from django.db import models
 
 class CustomText(models.Model):
     title = models.CharField(max_length=150,)
-    dada = models.DecimalField(max_digits=30, decimal_places=10, blank=True, null=True,)
+    dada = models.DecimalField(null=True, blank=True, max_digits=30, decimal_places=10,)
 
     def __str__(self):
         return self.title
