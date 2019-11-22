@@ -25,16 +25,19 @@ class Car(models.Model):
     f23 = models.ForeignKey(
         "users.User", on_delete=models.CASCADE, related_name="car_f23",
     )
-    f8 = models.DecimalField(max_digits=30, decimal_places=10, blank=True, null=True,)
-    f18 = models.TimeField(auto_now=False, auto_now_add=False, blank=True, null=True,)
+    f8 = models.DecimalField(null=True, blank=True, max_digits=30, decimal_places=10,)
+    f18 = models.TimeField(null=True, blank=True, auto_now=False, auto_now_add=False,)
     f21 = models.ForeignKey(
         "home.CustomText",
-        on_delete=models.CASCADE,
-        blank=True,
         null=True,
+        blank=True,
+        on_delete=models.CASCADE,
         related_name="car_f21",
     )
-    f15 = models.SlugField(max_length=50, blank=True, null=True,)
+    f15 = models.SlugField(null=True, blank=True, max_length=50,)
+    f00 = models.GenericIPAddressField(
+        protocol="both", unpack_ipv4=False, blank=True, null=True,
+    )
 
 
 # Create your models here.
